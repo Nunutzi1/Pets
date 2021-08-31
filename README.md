@@ -5,7 +5,7 @@ Project guide and monitoring
 
 - Run on a server (Example: WAMP) or use composer and run from the following command in the terminal:
 
-``php artisan serve
+```php artisan serve```
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
