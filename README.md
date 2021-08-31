@@ -1,5 +1,5 @@
 
-## Laravel Rest API exercise PETS
+# Laravel Rest API exercise PETS
 
 Project guide and monitoring
 
