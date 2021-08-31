@@ -74,3 +74,7 @@ PUT /delete/{id}
 - Write the following command to see the unit tests
 
 ```.\vendor\bin\phpunit.bat```
+
+## Database
+
+```pets.sql```
