@@ -63,3 +63,13 @@ PUT /update/{id} {"name": "Perro", "description": "Ejemplo"}
 PUT /delete/{id}
 200 OK
 ```
+
+## Unit tests
+
+- Path for unit tests
+
+```tests\Unit\PetsTest.php```
+
+- Write the following command to see the unit tests
+
+```.\vendor\bin\phpunit.bat```
