@@ -14,7 +14,7 @@ class PetsController extends Controller
      */
     public function getPets(Pets $pets)
     {
-        // Obtener todos las mascotas
+        // Get all pets and return
         $allPets = $pets->all();
         return $allPets;
     }
@@ -26,7 +26,7 @@ class PetsController extends Controller
      */
     public function getPet($id)
     {
-        // Obtener todos las mascotas
+        // Get pet by id and return
         $pet = Pets::find($id);
         return $pet;
     }
@@ -39,25 +39,16 @@ class PetsController extends Controller
      */
     public function create(Request $request)
     {
+        // Validate data
         $validate = $this->validate($request, [
             'name' => ['string','required'],
             'description' => ['string','required','max:100']
         ]);
 
+        // Create pets and return
         $crear = Pets::create($request->all());
         return $crear;
 
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Pets  $pets
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Pets $pets)
-    {
-        //
     }
 
     /**
@@ -69,13 +60,16 @@ class PetsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Get the object(pet) by id
         $pet = Pets::find($id);
 
+        // Validate data
         $validate = $this->validate($request, [
             'name' => ['string','required'],
             'description' => ['string','required','max:100']
         ]);
 
+        // Update data and return
         $pet->update([
             'name' => $request->input('name'),
             'description' => $request->input('description')
@@ -92,9 +86,10 @@ class PetsController extends Controller
      */
     public function destroy($id)
     {
+        // Get the object(pet) by id and delete
         $pet = Pets::find($id)->delete();
 
-        // respesta de JSON
+        // answer JSON and return
         $response['message'] = "Eliminado exitosamente";
         $response['success'] = true;
         

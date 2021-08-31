@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pets extends Model
 {
-    // Indicar los campos que seran administrados por el modelo
+    // Indicate the fields that will be managed by the model
     protected $fillable = ["name", "description"];
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 }
