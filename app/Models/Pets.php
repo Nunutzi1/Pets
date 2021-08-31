@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pets extends Model
 {
+    // Indicar los campos que seran administrados por el modelo
     protected $fillable = ["name", "description"];
 }

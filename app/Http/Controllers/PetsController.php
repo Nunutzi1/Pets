@@ -19,14 +19,16 @@ class PetsController extends Controller
         return $allPets;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
+     /**
+     * Display a listing of the resource.
+     * @param  \App\Models\Pets  $pets
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getPet($id)
     {
-        //
+        // Obtener todos las mascotas
+        $pet = Pets::find($id);
+        return $pet;
     }
 
     /**
@@ -35,20 +37,16 @@ class PetsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
-    }
+        $validate = $this->validate($request, [
+            'name' => ['string','required'],
+            'description' => ['string','required','max:100']
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Pets  $pets
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Pets $pets)
-    {
-        //
+        $crear = Pets::create($request->all());
+        return $crear;
+
     }
 
     /**
@@ -69,9 +67,21 @@ class PetsController extends Controller
      * @param  \App\Models\Pets  $pets
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pets $pets)
+    public function update(Request $request, $id)
     {
-        //
+        $pet = Pets::find($id);
+
+        $validate = $this->validate($request, [
+            'name' => ['string','required'],
+            'description' => ['string','required','max:100']
+        ]);
+
+        $pet->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description')
+        ]);
+
+        return $pet;
     }
 
     /**
@@ -80,8 +90,14 @@ class PetsController extends Controller
      * @param  \App\Models\Pets  $pets
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pets $pets)
+    public function destroy($id)
     {
-        //
+        $pet = Pets::find($id)->delete();
+
+        // respesta de JSON
+        $response['message'] = "Eliminado exitosamente";
+        $response['success'] = true;
+        
+        return $response;
     }
 }
