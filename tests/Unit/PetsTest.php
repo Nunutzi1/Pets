@@ -53,6 +53,6 @@ class PetsTest extends TestCase
 
     // Delete pet by id
     public function test_pet_delete(){
-        $this->delete(route('pet.delete', 16))->assertStatus(200);
+        $this->delete(route('pet.delete', 5))->assertStatus(200);
     }
 }
