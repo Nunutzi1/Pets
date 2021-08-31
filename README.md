@@ -3,6 +3,7 @@
 
 Project guide and monitoring
 
+- Have PHP 7 onwards
 - Run on a server (Example: WAMP) or use composer and run from the following command in the terminal:
 
 ```php artisan serve```
