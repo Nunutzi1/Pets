@@ -92,6 +92,10 @@ PUT /delete/{id}
 
 ```
 
+## Migrate database
+
+```php artisan migrate```
+
 ## Database
 
 ```pets.sql```
