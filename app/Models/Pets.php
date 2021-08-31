@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pets extends Model
 {
-    protected $table = ["name", "description"];
+    protected $fillable = ["name", "description"];
 }

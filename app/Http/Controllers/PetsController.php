@@ -9,12 +9,14 @@ class PetsController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param  \App\Models\Pets  $pets
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getPets(Pets $pets)
     {
-        //
+        // Obtener todos las mascotas
+        $allPets = $pets->all();
+        return $allPets;
     }
 
     /**
