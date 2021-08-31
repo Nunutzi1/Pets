@@ -4,6 +4,7 @@
 Project guide and monitoring
 
 - Have PHP 7 onwards
+- Need Composer
 - Run on a server (Example: WAMP) or use composer and run from the following command in the terminal:
 
 ```php artisan serve```
@@ -28,6 +29,10 @@ DB_USERNAME=root
 DB_PASSWORD=
 
 ```
+
+- if you have any errors, write the following code in the terminal
+
+```composer install```
 
 ## Postman
 
@@ -74,6 +79,18 @@ PUT /delete/{id}
 - Write the following command to see the unit tests
 
 ```.\vendor\bin\phpunit.bat```
+
+- Put an id that exists in the delete function
+
+```
+
+    // Delete pet by id
+    public function test_pet_delete(){
+        // 16 = id
+        $this->delete(route('pet.delete', 16))->assertStatus(200);
+    }
+
+```
 
 ## Database
 
